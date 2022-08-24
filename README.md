@@ -83,6 +83,8 @@ To bypass the redirect if the client request includes a special cookie and value
 		});
 	}
 ```
+The full implementation is inside [index.js](src/index.js).
+
 ## 6. Lock Down Access to a Path
 From the Cloudflare dashboard, I went to Security then Web Application Firewall, where I created a rule that blocks users who use curl to access the path `/nagoyacontact.html`. The full expression for this rule is `(http.request.uri eq "/nagoyacontact.html" and http.user_agent eq "curl/7.64.1")`. I verified that the firewall rule was working as expected in the activity log of the Overview page. 
 
